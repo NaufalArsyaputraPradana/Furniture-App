@@ -10,10 +10,10 @@ Route::get('/katalog', [CatalogController::class, 'index'])->name('catalog.index
 Route::get('/produk/{slug}', [CatalogController::class, 'show'])->name('catalog.show');
 
 Route::get('/dashboard', DashboardController::class)
-    ->middleware(['auth', 'verified', 'admin'])
+    ->middleware(['auth', 'verified', \App\Http\Middleware\AdminMiddleware::class])
     ->name('dashboard');
 
-Route::middleware(['auth','verified','admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth','verified', \App\Http\Middleware\AdminMiddleware::class])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
     Route::resource('products', \App\Http\Controllers\ProductController::class);
     Route::get('settings', [\App\Http\Controllers\Admin\SettingController::class, 'edit'])->name('settings.edit');
