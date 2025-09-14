@@ -1,6 +1,10 @@
 @php
-    $settings = \App\Models\Setting::first();
-    $whatsapp = $settings?->whatsapp_number ?? '085290505442';
+    try {
+        $settings = \App\Models\Setting::first();
+        $whatsapp = $settings?->whatsapp_number ?? '085290505442';
+    } catch (\Exception $e) {
+        $whatsapp = '085290505442'; // Fallback number when database unavailable
+    }
 @endphp
 
 @if($whatsapp)

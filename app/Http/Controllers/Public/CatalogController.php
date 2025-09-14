@@ -6,20 +6,44 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Category;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
     public function home()
     {
-        $settings = Setting::first();
-        $featured = Product::query()
-            ->where('is_active', true)
-            ->where('is_featured', true)
-            ->latest('id')
-            ->take(8)
-            ->get();
+        try {
+            $settings = Setting::first();
+            
+            // Create default settings if none exist
+            if (!$settings) {
+                $settings = Setting::create([
+                    'store_name' => 'Bisa Furniture',
+                    'whatsapp_number' => '085290505442',
+                    'hero_title' => 'Furniture Modern untuk Rumah Impian',
+                    'hero_subtitle' => 'Temukan koleksi furniture berkualitas tinggi dengan desain eksklusif dan teknologi terdepan untuk hunian modern Anda'
+                ]);
+            }
+        } catch (\Exception $e) {
+            // Fallback settings when database is unavailable
+            $settings = (object) [
+                'store_name' => 'Bisa Furniture',
+                'whatsapp_number' => '085290505442',
+                'hero_title' => 'Furniture Modern untuk Rumah Impian',
+                'hero_subtitle' => 'Temukan koleksi furniture berkualitas tinggi dengan desain eksklusif dan teknologi terdepan untuk hunian modern Anda'
+            ];
+        }
+        
+        try {
+            $featured = Product::query()
+                ->where('is_active', true)
+                ->where('is_featured', true)
+                ->latest('id')
+                ->take(8)
+                ->get();
+        } catch (\Exception $e) {
+            $featured = collect(); // Empty collection as fallback
+        }
 
         return view('home', compact('settings', 'featured'));
     }
@@ -54,11 +78,24 @@ class CatalogController extends Controller
 
     public function show(string $slug)
     {
-        $product = Product::with(['category', 'images'])
-            ->where('slug', $slug)
-            ->where('is_active', true)
-            ->firstOrFail();
-        $settings = Setting::first();
+        try {
+            $product = Product::with(['category', 'images'])
+                ->where('slug', $slug)
+                ->where('is_active', true)
+                ->firstOrFail();
+        } catch (\Exception $e) {
+            abort(404, 'Product not found or database unavailable');
+        }
+        
+        try {
+            $settings = Setting::first();
+        } catch (\Exception $e) {
+            // Fallback settings when database is unavailable
+            $settings = (object) [
+                'whatsapp_number' => '085290505442'
+            ];
+        }
+        
         return view('catalog.show', compact('product', 'settings'));
     }
 }

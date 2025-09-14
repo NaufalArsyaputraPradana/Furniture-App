@@ -16,6 +16,20 @@
         
         <!-- Additional Styles -->
         <style>
+            /* Primary colors for backward compatibility */
+            .bg-primary { 
+                background-color: rgb(245 158 11); /* amber-500 */
+            }
+            .bg-primary:hover {
+                background-color: rgb(217 119 6); /* amber-600 */
+            }
+            .text-primary {
+                color: rgb(245 158 11); /* amber-500 */
+            }
+            .border-primary {
+                border-color: rgb(245 158 11); /* amber-500 */
+            }
+            
             /* Custom Animations */
             @keyframes blob {
                 0% { transform: translate(0px, 0px) scale(1); }

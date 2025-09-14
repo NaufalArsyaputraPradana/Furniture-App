@@ -6,6 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property int $id
+ * @property int $category_id
+ * @property string $name
+ * @property string $slug
+ * @property string|null $sku
+ * @property string|null $thumbnail_path
+ * @property float $price
+ * @property float|null $compare_at_price
+ * @property int $stock
+ * @property bool $is_active
+ * @property bool $is_featured
+ * @property string|null $short_description
+ * @property string|null $description
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ */
 class Product extends Model
 {
     protected $fillable = [
@@ -40,5 +57,11 @@ class Product extends Model
     public function images(): HasMany
     {
         return $this->hasMany(ProductImage::class);
+    }
+
+    // Accessor for main_image to use thumbnail_path
+    public function getMainImageAttribute()
+    {
+        return $this->thumbnail_path;
     }
 }

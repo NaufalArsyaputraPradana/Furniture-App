@@ -56,7 +56,7 @@ class ProductSeeder extends Seeder
                     'compare_at_price' => null,
                     'stock' => 10,
                     'is_active' => true,
-                    'is_featured' => false,
+                    'is_featured' => true,
                     'attributes' => null,
                     'short_description' => $data['short_description'],
                     'description' => null,

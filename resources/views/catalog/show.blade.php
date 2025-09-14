@@ -1,12 +1,12 @@
 <x-app-layout>
     <!-- Breadcrumb dengan desain modern -->
-    <div class="bg-gradient-to-r from-purple-50 via-pink-50 to-purple-50 py-6">
+    <div class="bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-2 md:space-x-4">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="group inline-flex items-center text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors duration-300">
-                            <div class="w-8 h-8 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 group-hover:bg-purple-100 transition-colors">
+                        <a href="{{ route('home') }}" class="group inline-flex items-center text-sm font-medium text-gray-600 hover:text-amber-600 transition-colors duration-300">
+                            <div class="w-8 h-8 bg-white/80 backdrop-blur-sm rounded-xl flex items-center justify-center mr-3 group-hover:bg-amber-100 transition-colors">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                                 </svg>
@@ -19,7 +19,7 @@
                             <svg class="w-5 h-5 text-gray-300 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <a href="{{ route('catalog.index') }}" class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors duration-300">Katalog</a>
+                            <a href="{{ route('catalog.index') }}" class="text-sm font-medium text-gray-600 hover:text-amber-600 transition-colors duration-300">Katalog</a>
                         </div>
                     </li>
                     @if($product->category)
@@ -28,7 +28,7 @@
                             <svg class="w-5 h-5 text-gray-300 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <a href="{{ route('catalog.index', ['category_id' => $product->category->id]) }}" class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors duration-300">{{ $product->category->name }}</a>
+                            <a href="{{ route('catalog.index', ['category_id' => $product->category->id]) }}" class="text-sm font-medium text-gray-600 hover:text-amber-600 transition-colors duration-300">{{ $product->category->name }}</a>
                         </div>
                     </li>
                     @endif
@@ -37,7 +37,7 @@
                             <svg class="w-5 h-5 text-gray-300 mx-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
-                            <span class="text-sm font-medium text-purple-600 truncate max-w-xs">{{ $product->name }}</span>
+                            <span class="text-sm font-medium text-amber-600 truncate max-w-xs">{{ $product->name }}</span>
                         </div>
                     </li>
                 </ol>
@@ -46,11 +46,11 @@
     </div>
 
     <!-- Background dengan animasi -->
-    <div class="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 relative overflow-hidden">
+    <div class="min-h-screen bg-gradient-to-br from-amber-50 via-white to-yellow-50 relative overflow-hidden">
         <!-- Animated background elements -->
-        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div class="absolute top-40 right-10 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-20 left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div class="absolute top-20 left-10 w-72 h-72 bg-amber-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-20 left-20 w-72 h-72 bg-orange-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
 
         <div class="relative py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,15 +94,15 @@
                             <!-- Category Badge -->
                             @if($product->category)
                             <div class="mb-6">
-                                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 border border-purple-200">
-                                    <div class="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-2"></div>
+                                <span class="inline-flex items-center px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800 border border-amber-200">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full mr-2"></div>
                                     {{ $product->category->name }}
                                 </span>
                             </div>
                             @endif
 
                             <!-- Product Name -->
-                            <h1 class="text-4xl font-bold bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 bg-clip-text text-transparent mb-4 leading-tight">
+                            <h1 class="text-4xl font-bold bg-gradient-to-r from-gray-900 via-amber-900 to-gray-900 bg-clip-text text-transparent mb-4 leading-tight">
                                 {{ $product->name }}
                             </h1>
 
@@ -117,10 +117,10 @@
                             @endif
 
                             <!-- Price Section -->
-                            <div class="mb-8 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl border border-purple-100">
+                            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl border border-amber-100">
                                 <div class="flex items-center justify-between">
                                     <div>
-                                        <div class="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+                                        <div class="text-4xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent mb-2">
                                             Rp {{ number_format($product->price, 0, ',', '.') }}
                                         </div>
                                         @if($product->compare_at_price && $product->compare_at_price > $product->price)
@@ -150,7 +150,7 @@
                             <!-- Short Description -->
                             @if($product->short_description)
                             <div class="mb-8">
-                                <p class="text-lg text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-2xl border-l-4 border-purple-400">
+                                <p class="text-lg text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-2xl border-l-4 border-amber-400">
                                     {{ $product->short_description }}
                                 </p>
                             </div>
@@ -189,18 +189,18 @@
                             @if($product->attributes && is_array($product->attributes) && count($product->attributes) > 0)
                             <div class="mb-8">
                                 <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-3">
+                                    <div class="w-8 h-8 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mr-3">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                                         </svg>
                                     </div>
                                     Spesifikasi Produk
                                 </h3>
-                                <div class="bg-gradient-to-r from-gray-50 to-purple-50 rounded-2xl p-6 border border-gray-200">
+                                <div class="bg-gradient-to-r from-gray-50 to-amber-50 rounded-2xl p-6 border border-gray-200">
                                     @foreach($product->attributes as $key => $value)
                                     <div class="flex justify-between items-center py-3 border-b border-gray-200/50 last:border-b-0">
                                         <span class="font-semibold text-gray-700 flex items-center">
-                                            <div class="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mr-3"></div>
+                                            <div class="w-2 h-2 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full mr-3"></div>
                                             {{ ucfirst($key) }}
                                         </span>
                                         <span class="text-gray-900 font-medium bg-white px-3 py-1 rounded-lg">{{ $value }}</span>
@@ -261,7 +261,7 @@
 
                                 <!-- Additional Action Buttons -->
                                 <div class="grid grid-cols-2 gap-4">
-                                    <button class="group flex items-center justify-center px-6 py-4 bg-white/80 backdrop-blur-sm text-gray-700 font-bold rounded-2xl hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg border border-gray-200 hover:border-purple-300">
+                                    <button class="group flex items-center justify-center px-6 py-4 bg-white/80 backdrop-blur-sm text-gray-700 font-bold rounded-2xl hover:bg-white transition-all duration-300 transform hover:scale-105 shadow-lg border border-gray-200 hover:border-amber-300">
                                         <svg class="w-6 h-6 mr-3 group-hover:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                         </svg>
@@ -277,7 +277,7 @@
                             </div>
 
                             <!-- Trust Badges -->
-                            <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-200">
+                            <div class="mt-8 p-6 bg-gradient-to-r from-blue-50 to-amber-50 rounded-2xl border border-blue-200">
                                 <h4 class="font-bold text-gray-900 mb-4 text-center">🛡️ Jaminan Kepercayaan</h4>
                                 <div class="grid grid-cols-1 gap-4">
                                     <div class="flex items-center text-sm text-gray-700">
@@ -303,14 +303,14 @@
                                         </div>
                                     </div>
                                     <div class="flex items-center text-sm text-gray-700">
-                                        <div class="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center mr-4">
-                                            <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center mr-4">
+                                            <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd"></path>
                                             </svg>
                                         </div>
                                         <div>
-                                            <div class="font-bold text-purple-800">Pengiriman Nationwide</div>
-                                            <div class="text-purple-600">Ke seluruh Indonesia</div>
+                                            <div class="font-bold text-amber-800">Pengiriman Nationwide</div>
+                                            <div class="text-amber-600">Ke seluruh Indonesia</div>
                                         </div>
                                     </div>
                                 </div>
@@ -323,7 +323,7 @@
                 @if($product->description)
                 <div class="mt-20">
                     <div class="bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl p-8 border border-white/50">
-                        <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-8 flex items-center">
+                        <h2 class="text-3xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent mb-8 flex items-center">
                             <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mr-4">
                                 <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
