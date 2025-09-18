@@ -31,3 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/foo', function () {
+   Artisan::call('storage:link');
+});
