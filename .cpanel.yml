@@ -1,46 +1,70 @@
 ---
 deployment:
   tasks:
+    # Set deployment path (sesuaikan dengan cPanel Anda)
+    - export DEPLOYPATH=/home/gopneeqq/public_html/
+    
     # Backup current deployment
     - export BACKUP_DIR="/tmp/backup_$(date +%Y%m%d_%H%M%S)"
     - mkdir -p $BACKUP_DIR
     - cp -r $DEPLOYPATH/* $BACKUP_DIR/ 2>/dev/null || true
     
-    # Clear old files and copy new files
-    - /bin/cp -R * $DEPLOYPATH
+    # Copy folder Laravel yang WAJIB
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R bootstrap $DEPLOYPATH
+    - /bin/cp -R config $DEPLOYPATH
+    - /bin/cp -R database $DEPLOYPATH
+    - /bin/cp -R public $DEPLOYPATH
+    - /bin/cp -R resources $DEPLOYPATH
+    - /bin/cp -R routes $DEPLOYPATH
+    
+    # Copy storage folder (dengan hati-hati - jangan timpa data yang sudah ada)
+    - /bin/cp -R storage/app $DEPLOYPATH/storage/ 2>/dev/null || true
+    - /bin/cp -R storage/framework $DEPLOYPATH/storage/ 2>/dev/null || true
+    
+    # Copy file konfigurasi penting
+    - /bin/cp .env.example $DEPLOYPATH
+    - /bin/cp artisan $DEPLOYPATH
+    - /bin/cp composer.json $DEPLOYPATH
+    - /bin/cp composer.lock $DEPLOYPATH
+    - /bin/cp .htaccess $DEPLOYPATH 2>/dev/null || true
     
     # Set proper permissions
-    - find $DEPLOYPATH -type f -exec chmod 644 {} \;
-    - find $DEPLOYPATH -type d -exec chmod 755 {} \;
+    - find $DEPLOYPATH -type f -exec chmod 644 {} \; 2>/dev/null || true
+    - find $DEPLOYPATH -type d -exec chmod 755 {} \; 2>/dev/null || true
     - chmod -R 755 $DEPLOYPATH/storage
     - chmod -R 755 $DEPLOYPATH/bootstrap/cache
     - chmod 755 $DEPLOYPATH/artisan
     
     # Install/Update Composer dependencies (production mode)
-    - cd $DEPLOYPATH && composer install --no-dev --optimize-autoloader --no-interaction
+    - cd $DEPLOYPATH && composer install --no-dev --optimize-autoloader --no-interaction 2>/dev/null || echo "Composer not available - install dependencies manually"
     
     # Copy environment file if not exists
     - cd $DEPLOYPATH && [ ! -f .env ] && cp .env.example .env || true
     
     # Generate application key if not set
-    - cd $DEPLOYPATH && php artisan key:generate --no-interaction || true
+    - cd $DEPLOYPATH && php artisan key:generate --no-interaction 2>/dev/null || echo "Please set APP_KEY manually"
+    
+    # Build frontend assets (Vite/NPM) - penting untuk Laravel dengan Tailwind/Vite
+    - cd $DEPLOYPATH && npm install 2>/dev/null || echo "NPM not available - build assets manually"
+    - cd $DEPLOYPATH && npm run build 2>/dev/null || echo "Build assets manually if needed"
     
     # Clear and cache configuration
-    - cd $DEPLOYPATH && php artisan config:clear
-    - cd $DEPLOYPATH && php artisan cache:clear
-    - cd $DEPLOYPATH && php artisan route:clear
-    - cd $DEPLOYPATH && php artisan view:clear
+    - cd $DEPLOYPATH && php artisan config:clear 2>/dev/null || true
+    - cd $DEPLOYPATH && php artisan cache:clear 2>/dev/null || true
+    - cd $DEPLOYPATH && php artisan route:clear 2>/dev/null || true
+    - cd $DEPLOYPATH && php artisan view:clear 2>/dev/null || true
     
-    # Run database migrations (be careful in production)
+    # Run database migrations (HATI-HATI! Uncomment jika diperlukan)
     # - cd $DEPLOYPATH && php artisan migrate --force
     
     # Cache configurations for better performance
-    - cd $DEPLOYPATH && php artisan config:cache
-    - cd $DEPLOYPATH && php artisan route:cache
-    - cd $DEPLOYPATH && php artisan view:cache
+    - cd $DEPLOYPATH && php artisan config:cache 2>/dev/null || true
+    - cd $DEPLOYPATH && php artisan route:cache 2>/dev/null || true
+    - cd $DEPLOYPATH && php artisan view:cache 2>/dev/null || true
     
     # Create storage link
-    - cd $DEPLOYPATH && php artisan storage:link
+    - cd $DEPLOYPATH && php artisan storage:link 2>/dev/null || true
     
     # Set final permissions
     - chmod -R 755 $DEPLOYPATH/storage
