@@ -27,7 +27,7 @@
                         <span
                             class="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">Bisa
                             Furniture</span>
-                        <div class="text-sm text-gray-400">Premium Collection</div>
+                        <div class="text-sm text-gray-400">Premium Furniture</div>
                     </div>
                 </div>
                 <p class="text-gray-300 mb-8 max-w-lg leading-relaxed">
