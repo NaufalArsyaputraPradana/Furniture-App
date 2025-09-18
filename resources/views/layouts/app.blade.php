@@ -9,7 +9,7 @@
 
         <!-- SEO Meta Tags -->
         <meta name="description" content="{{ $description ?? 'Bisa Furniture menyediakan berbagai macam mebel dan furniture berkualitas tinggi dengan desain modern dan harga terjangkau. Melayani custom furniture sesuai kebutuhan Anda.' }}">
-        <meta name="keywords" content="furniture, mebel, lemari, kursi, meja, sofa, tempat tidur, furniture custom, furniture murah, furniture berkualitas, furniture modern">
+        <meta name="keywords" content="Bisa Furniture, bisa furniture, furniture, mebel, lemari, kursi, meja, sofa, tempat tidur, furniture custom, furniture murah, furniture berkualitas, furniture modern">
         <meta name="author" content="Bisa Furniture">
         <meta name="robots" content="index, follow">
         <meta name="revisit-after" content="7 days">
