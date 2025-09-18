@@ -79,7 +79,7 @@
                         <svg class="w-5 h-5 mr-2 text-yellow-300" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2L3.09 8.26L12 22L20.91 8.26L12 2Z" />
                         </svg>
-                        <span class="text-sm font-medium text-white/90">✨ Furniture Jepara Premium</span>
+                        <span class="text-sm font-medium text-white/90">✨ Furniture Ukiran Jepara Premium</span>
                     </div>
 
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-none">
