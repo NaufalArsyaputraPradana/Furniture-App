@@ -10,9 +10,9 @@
                             <img src="{{ asset('logo/logo.png') }}" alt="Bisa Furniture Logo" class="w-12 h-12 object-contain group-hover:scale-110 transition-all duration-300 logo-hover">
                             <div class="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-yellow-400/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
-                        <div class="hidden sm:block">
+                        <div class="block">
                             <span class="text-xl font-bold bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Bisa Furniture</span>
-                            <div class="text-xs text-gray-500 -mt-1">Premium Furniture</div>
+                            <div class="text-xs text-gray-500 -mt-1 hidden sm:block">Premium Furniture</div>
                         </div>
                     </a>
                 </div>
@@ -155,15 +155,7 @@
                         </svg>
                         <span>Masuk</span>
                     </a>
-                    @if (Route::has('register'))
-                    <a href="{{ route('register') }}" 
-                       class="group inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-medium rounded-xl hover:from-amber-600 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                        <svg class="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-                        </svg>
-                        <span>Daftar</span>
-                    </a>
-                    @endif
+                   
                 </div>
                 @endauth
             </div>
@@ -287,21 +279,6 @@
                         <div class="text-xs text-gray-500">Login ke akun Anda</div>
                     </div>
                 </a>
-                
-                @if (Route::has('register'))
-                <a href="{{ route('register') }}" 
-                   class="group flex items-center p-3 text-base font-medium text-white bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 transition-all duration-300 rounded-xl shadow-lg">
-                    <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="font-medium">Daftar</div>
-                        <div class="text-xs text-white/80">Buat akun baru</div>
-                    </div>
-                </a>
-                @endif
             </div>
             @endauth
         </div>
