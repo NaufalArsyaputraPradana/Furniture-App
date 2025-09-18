@@ -5,7 +5,61 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Bisa Furniture') }}</title>
+        <title>{{ $title ?? 'Bisa Furniture - Mebel & Furniture Berkualitas' }}</title>
+
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="{{ $description ?? 'Bisa Furniture menyediakan berbagai macam mebel dan furniture berkualitas tinggi dengan desain modern dan harga terjangkau. Melayani custom furniture sesuai kebutuhan Anda.' }}">
+        <meta name="keywords" content="furniture, mebel, lemari, kursi, meja, sofa, tempat tidur, furniture custom, furniture murah, furniture berkualitas, furniture modern">
+        <meta name="author" content="Bisa Furniture">
+        <meta name="robots" content="index, follow">
+        <meta name="revisit-after" content="7 days">
+        <meta name="language" content="id">
+        <meta name="geo.region" content="ID-JT">
+        <meta name="geo.placename" content="Jawa Tengah, Indonesia">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="{{ $title ?? 'Bisa Furniture - Mebel & Furniture Berkualitas' }}">
+        <meta property="og:description" content="{{ $description ?? 'Bisa Furniture menyediakan berbagai macam mebel dan furniture berkualitas tinggi dengan desain modern dan harga terjangkau.' }}">
+        <meta property="og:image" content="{{ asset('logo/logo.png') }}">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:site_name" content="Bisa Furniture">
+        <meta property="og:locale" content="id_ID">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $title ?? 'Bisa Furniture - Mebel & Furniture Berkualitas' }}">
+        <meta name="twitter:description" content="{{ $description ?? 'Bisa Furniture menyediakan berbagai macam mebel dan furniture berkualitas tinggi dengan desain modern dan harga terjangkau.' }}">
+        <meta name="twitter:image" content="{{ asset('logo/logo.png') }}">
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="{{ url()->current() }}">
+
+        <!-- Favicon dan Meta Tags -->
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('logo/logo.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('logo/logo.png') }}">
+        <link rel="shortcut icon" type="image/png" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('logo/logo.png') }}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('logo/logo.png') }}">
+        
+        <!-- Android Icons -->
+        <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('logo/logo.png') }}">
+        <link rel="manifest" href="{{ asset('manifest.json') }}">
+        
+        <!-- Windows Tiles -->
+        <meta name="msapplication-TileColor" content="#f59e0b">
+        <meta name="msapplication-TileImage" content="{{ asset('logo/logo.png') }}">
+        <meta name="msapplication-config" content="{{ asset('browserconfig.xml') }}">
+        
+        <!-- Theme Color -->
+        <meta name="theme-color" content="#f59e0b">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -30,103 +84,18 @@
                 border-color: rgb(245 158 11); /* amber-500 */
             }
             
-            /* Custom Animations */
-            @keyframes blob {
-                0% { transform: translate(0px, 0px) scale(1); }
-                33% { transform: translate(30px, -50px) scale(1.1); }
-                66% { transform: translate(-20px, 20px) scale(0.9); }
-                100% { transform: translate(0px, 0px) scale(1); }
+            /* Navbar scroll effect */
+            .navbar-scroll {
+                backdrop-filter: blur(20px);
+                background: rgba(255, 255, 255, 0.95);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
             
-            @keyframes float {
-                0%, 100% { transform: translateY(0px); }
-                50% { transform: translateY(-20px); }
+            /* Logo hover effect */
+            .logo-hover {
+                filter: drop-shadow(0 4px 8px rgba(245, 158, 11, 0.3));
             }
-            
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
-            @keyframes shine {
-                0% { left: -100%; }
-                100% { left: 100%; }
-            }
-            
-            @keyframes pulse-slow {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0.7; }
-            }
-            
-            @keyframes gradient-move {
-                0% { background-position: 0% 50%; }
-                50% { background-position: 100% 50%; }
-                100% { background-position: 0% 50%; }
-            }
-            
-            @keyframes loading {
-                0% { background-position: 200% 0; }
-                100% { background-position: -200% 0; }
-            }
-            
-            .animate-blob {
-                animation: blob 7s infinite;
-            }
-            
-            .animation-delay-2000 {
-                animation-delay: 2s;
-            }
-            
-            .animation-delay-4000 {
-                animation-delay: 4s;
-            }
-            
-            .animate-float {
-                animation: float 6s ease-in-out infinite;
-            }
-            
-            .animate-fadeInUp {
-                animation: fadeInUp 0.8s ease-out;
-            }
-            
-            .animate-gradient {
-                background-size: 400% 400%;
-                animation: gradient-move 3s ease infinite;
-            }
-            
-            .animate-pulse-slow {
-                animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            }
-            
-            /* Glass effect */
-            .glass {
-                backdrop-filter: blur(16px) saturate(180%);
-                -webkit-backdrop-filter: blur(16px) saturate(180%);
-                background-color: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.125);
-            }
-            
-            /* Hover effects */
-            .hover-lift {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            
-            .hover-lift:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            }
-            
-            /* Smooth scroll */
-            html {
-                scroll-behavior: smooth;
-            }
-            
+
             /* Custom gradient backgrounds */
             .bg-golden-gradient {
                 background: linear-gradient(135deg, #906126 0%, #A87C2D 30%, #F3CB51 70%, #F0D27F 100%);
@@ -146,35 +115,6 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-            }
-            
-            /* Loading states */
-            .loading-shimmer {
-                background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-                background-size: 200% 100%;
-                animation: loading 1.5s infinite;
-            }
-            
-            /* Modern buttons */
-            .btn-modern {
-                position: relative;
-                overflow: hidden;
-                transform: perspective(1px) translateZ(0);
-            }
-            
-            .btn-modern::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-                transition: left 0.5s;
-            }
-            
-            .btn-modern:hover::before {
-                left: 100%;
             }
         </style>
     </head>
@@ -202,5 +142,44 @@
             <!-- WhatsApp Floating Button -->
             <x-whatsapp-float />
         </div>
+        
+        <!-- Navbar Scroll Effect Script -->
+        <script>
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('nav');
+                const logo = document.querySelector('.logo-hover');
+                
+                if (window.scrollY > 50) {
+                    navbar?.classList.add('navbar-scroll');
+                    logo?.classList.add('scale-95');
+                } else {
+                    navbar?.classList.remove('navbar-scroll');
+                    logo?.classList.remove('scale-95');
+                }
+            });
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // PWA install prompt
+            let deferredPrompt;
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                // Show install button if needed
+            });
+        </script>
     </body>
 </html>

@@ -1,10 +1,10 @@
 <x-app-layout>
 	<!-- Hero Header Section -->
-    <section class="relative bg-gradient-to-br from-emerald-600 via-emerald-500 to-teal-500 py-16 overflow-hidden">
+    <section class="relative bg-gradient-to-br from-amber-600 via-amber-500 to-yellow-500 py-16 overflow-hidden">
         <!-- Animated Background Elements -->
         <div class="absolute inset-0">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-700 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-            <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-teal-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-amber-700 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+            <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-yellow-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
         </div>
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,29 +55,10 @@
 									Nama Kategori *
 								</label>
 								<input name="name" 
-									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
-									   placeholder="Contoh: Sofa, Meja Makan, Lemari" 
+									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 hover:border-amber-300" 
+									   placeholder="Contoh: Kursi, Meja, Lemari, Tempat Tidur" 
 									   value="{{ old('name', $category->name) }}" 
 									   required>
-							</div>
-							
-							<div>
-								<label class="block text-sm font-semibold text-gray-700 mb-3">
-									<svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-									</svg>
-									Slug (Opsional)
-								</label>
-								<input name="slug" 
-									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
-									   placeholder="sofa-modern" 
-									   value="{{ old('slug', $category->slug) }}">
-								<p class="text-sm text-gray-500 mt-2 flex items-center">
-									<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-									</svg>
-									Biarkan kosong untuk generate otomatis dari nama
-								</p>
 							</div>
 						</div>
 						
@@ -102,7 +83,7 @@
 							<div class="relative">
 								<input type="file" 
 									   name="image" 
-									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
+									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 hover:border-amber-300" 
 									   accept="image/*">
 								<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
 									<svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,16 +102,18 @@
 								Deskripsi
 							</label>
 							<textarea name="description" 
-									  class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
+									  class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 hover:border-amber-300" 
 									  placeholder="Deskripsi singkat tentang kategori ini..." 
 									  rows="4">{{ old('description', $category->description) }}</textarea>
 						</div>
 						
 						<div class="bg-gray-50 rounded-xl p-6">
 							<label class="inline-flex items-center gap-3">
+								<input type="hidden" name="is_active" value="0">
 								<input type="checkbox" 
 									   name="is_active" 
-									   class="w-5 h-5 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 transition-colors" 
+									   value="1"
+									   class="w-5 h-5 rounded border-gray-300 text-amber-600 focus:ring-amber-500 transition-colors" 
 									   {{ old('is_active', $category->is_active) ? 'checked' : '' }}>
 								<span class="text-sm font-semibold text-gray-700 flex items-center">
 									<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,12 +122,14 @@
 									Kategori Aktif
 								</span>
 							</label>
-							<p class="text-sm text-gray-500 mt-1 ml-8">Centang untuk mengaktifkan kategori ini</p>
+							<p class="text-sm text-gray-500 mt-3">
+								• <strong>Kategori Aktif:</strong> Tampil di navigasi dan dapat digunakan untuk produk
+							</p>
 						</div>
 						
 						<div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
 							<button type="submit" 
-									class="flex-1 flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-emerald-800 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 shadow-lg">
+									class="flex-1 flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-semibold rounded-xl hover:from-amber-700 hover:to-amber-800 focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 shadow-lg">
 								<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
 								</svg>

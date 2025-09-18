@@ -2,4 +2,4 @@
 
 use Illuminate\Support\Facades\Artisan;
 
-// Define custom console commands here
+// Custom console commands can be added here if needed

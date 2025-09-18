@@ -36,6 +36,7 @@ class CatalogController extends Controller
         
         try {
             $featured = Product::query()
+                ->with('category')
                 ->where('is_active', true)
                 ->where('is_featured', true)
                 ->latest('id')
@@ -53,14 +54,14 @@ class CatalogController extends Controller
         $query = Product::query()->with('category')
             ->where('is_active', true);
 
-        if ($search = $request->string('q')->toString()) {
+        if ($search = $request->string('search')->toString()) {
             $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('short_description', 'like', "%{$search}%");
+                  ->orWhere('description', 'like', "%{$search}%");
             });
         }
 
-        if ($categoryId = $request->integer('category_id')) {
+        if ($categoryId = $request->integer('category')) {
             $query->where('category_id', $categoryId);
         }
 

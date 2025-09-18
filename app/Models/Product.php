@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $stock
  * @property bool $is_active
  * @property bool $is_featured
- * @property string|null $short_description
  * @property string|null $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -36,7 +35,6 @@ class Product extends Model
         'stock',
         'is_active',
         'is_featured',
-        'attributes',
         'short_description',
         'description',
     ];

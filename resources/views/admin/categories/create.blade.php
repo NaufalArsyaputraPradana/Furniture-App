@@ -45,39 +45,18 @@
 				<form method="post" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
 					@csrf
 					<div class="space-y-8">
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-							<div>
-								<label class="block text-sm font-semibold text-gray-700 mb-3">
-									<svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-									</svg>
-									Nama Kategori *
-								</label>
-								<input name="name" 
-									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
-									   placeholder="Contoh: Sofa, Meja Makan, Lemari" 
-									   value="{{ old('name') }}" 
-									   required>
-							</div>
-							
-							<div>
-								<label class="block text-sm font-semibold text-gray-700 mb-3">
-									<svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
-									</svg>
-									Slug (Opsional)
-								</label>
-								<input name="slug" 
-									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
-									   placeholder="sofa-modern" 
-									   value="{{ old('slug') }}">
-								<p class="text-sm text-gray-500 mt-2 flex items-center">
-									<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-									</svg>
-									Biarkan kosong untuk generate otomatis dari nama
-								</p>
-							</div>
+						<div>
+							<label class="block text-sm font-semibold text-gray-700 mb-3">
+								<svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+								</svg>
+								Nama Kategori *
+							</label>
+							<input name="name" 
+								   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 hover:border-amber-300" 
+								   placeholder="Contoh: Kursi, Meja, Lemari, Tempat Tidur" 
+								   value="{{ old('name') }}" 
+								   required>
 						</div>
 						
 						<div>
@@ -85,12 +64,12 @@
 								<svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
 								</svg>
-								Gambar Kategori
+								Gambar Kategori (Opsional)
 							</label>
 							<div class="relative">
 								<input type="file" 
 									   name="image" 
-									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
+									   class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-300 hover:border-amber-300" 
 									   accept="image/*">
 								<div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
 									<svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,28 +77,38 @@
 									</svg>
 								</div>
 							</div>
-							<p class="text-sm text-gray-500 mt-2">Format: JPG, PNG, WebP. Ukuran maksimal: 2MB</p>
+							<p class="text-sm text-gray-500 mt-2">Format: JPG, PNG, WebP. Ukuran maksimal: 4MB</p>
 						</div>
 						
-						<div>
-							<label class="block text-sm font-semibold text-gray-700 mb-3">
-								<svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+						<div class="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border border-amber-200">
+							<div class="flex items-center mb-4">
+								<svg class="w-5 h-5 text-amber-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
 								</svg>
-								Deskripsi
-							</label>
-							<textarea name="description" 
-									  class="w-full border-2 border-gray-200 rounded-xl p-4 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all duration-300 hover:border-emerald-300" 
-									  placeholder="Deskripsi singkat tentang kategori ini..." 
-									  rows="4">{{ old('description') }}</textarea>
+								<h3 class="text-lg font-semibold text-amber-800">Deskripsi AI Generator</h3>
+							</div>
+							<p class="text-amber-700 text-sm mb-4">
+								Deskripsi kategori akan otomatis dibuatkan berdasarkan nama kategori menggunakan AI.
+								Deskripsi akan mencakup jenis produk, keunggulan, dan karakteristik furniture Jepara dalam kategori ini.
+							</p>
+							<div class="bg-white rounded-lg p-3 border border-amber-300">
+								<div class="flex items-center text-amber-600">
+									<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+									</svg>
+									<span class="text-sm font-medium">Deskripsi akan dibuat otomatis setelah menyimpan kategori</span>
+								</div>
+							</div>
 						</div>
 						
 						<div class="bg-gray-50 rounded-xl p-6">
 							<label class="inline-flex items-center gap-3">
+								<input type="hidden" name="is_active" value="0">
 								<input type="checkbox" 
 									   name="is_active" 
-									   class="w-5 h-5 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500 transition-colors" 
-									   {{ old('is_active', true) ? 'checked' : '' }}>
+									   value="1"
+									   class="w-5 h-5 rounded border-gray-300 text-amber-600 focus:ring-amber-500 transition-colors" 
+									   {{ old('is_active', '1') == '1' ? 'checked' : '' }}>
 								<span class="text-sm font-semibold text-gray-700 flex items-center">
 									<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -127,12 +116,14 @@
 									Kategori Aktif
 								</span>
 							</label>
-							<p class="text-sm text-gray-500 mt-1 ml-8">Centang untuk mengaktifkan kategori ini</p>
+							<p class="text-sm text-gray-500 mt-3">
+								• <strong>Kategori Aktif:</strong> Tampil di navigasi dan dapat digunakan untuk produk
+							</p>
 						</div>
 						
 						<div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
 							<button type="submit" 
-									class="flex-1 flex items-center justify-center px-8 py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-semibold rounded-xl hover:from-emerald-700 hover:to-emerald-800 focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 shadow-lg">
+									class="flex-1 flex items-center justify-center px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-semibold rounded-xl hover:from-amber-700 hover:to-amber-800 focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 shadow-lg">
 								<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 								</svg>

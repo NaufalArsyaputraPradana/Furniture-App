@@ -1,17 +1,35 @@
-# Furniture App
+# 🪑 Furniture App - Jepara Carving Furniture Store
 
-Aplikasi furniture e-commerce menggunakan Laravel 11 dengan database MySQL dan Tailwind CSS.
+![Laravel](https://img.shields.io/badge/Laravel-11.x-red.svg)
+![PHP](https://img.shields.io/badge/PHP-8.1+-blue.svg)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-## Fitur
+A modern, elegant furniture e-commerce application showcasing traditional Jepara wood carving craftsmanship. Built with Laravel and featuring a beautiful, responsive design.
 
-- 🛋️ Katalog produk furniture dengan kategori
-- 👨‍💼 Admin panel untuk manajemen produk dan kategori
-- 📱 WhatsApp integration untuk kontak
-- 🎨 UI modern dengan Tailwind CSS
-- 🔒 Autentikasi admin dengan middleware
-- 📧 Error handling yang robust
+## ✨ Features
 
-## Teknologi
+### 🏪 **Store Front**
+- **Elegant Homepage** - Showcasing Jepara carving heritage with beautiful animations
+- **Product Catalog** - Browse furniture with advanced filtering and search
+- **Product Details** - Detailed product pages with image galleries
+- **Responsive Design** - Optimized for all devices
+- **WhatsApp Integration** - Direct contact for inquiries
+
+### � **Admin Panel**
+- **Product Management** - Create, edit, and manage furniture products
+- **Category Management** - Organize products into categories
+- **Image Management** - Upload and manage product images
+- **Settings Management** - Configure store settings and branding
+- **Admin Authentication** - Secure admin access with middleware
+
+### 🎨 **Design & UX**
+- **Traditional Theme** - Inspired by Jepara carving artistry
+- **Smooth Animations** - Engaging user experience with smooth transitions
+- **Modern UI** - Clean, professional interface built with Tailwind CSS
+- **SEO Optimized** - Search engine friendly structure
+
+## 🚀 Technologies
 
 - **Backend**: Laravel 11, MySQL
 - **Frontend**: Blade Templates, Tailwind CSS, Alpine.js

@@ -49,9 +49,9 @@
 					<h3 class="text-lg font-semibold mb-4">Logo Toko</h3>
 					
 					<div>
-						@if($setting->store_logo)
+						@if($setting->store_logo_path)
 							<div class="mb-4">
-								<img src="{{ Storage::url($setting->store_logo) }}" alt="Current logo" class="w-32 h-32 object-contain bg-gray-100 rounded">
+								<img src="{{ asset('storage/'.$setting->store_logo_path) }}" alt="Current logo" class="w-32 h-32 object-contain bg-gray-100 rounded">
 								<p class="text-sm text-gray-500 mt-1">Logo saat ini</p>
 							</div>
 						@endif
@@ -85,9 +85,9 @@
 						
 						<div>
 							<label class="block text-sm font-medium text-gray-700 mb-2">Hero Image</label>
-							@if($setting->hero_image)
+							@if($setting->hero_image_path)
 								<div class="mb-4">
-									<img src="{{ Storage::url($setting->hero_image) }}" alt="Current hero image" class="w-64 h-32 object-cover rounded">
+									<img src="{{ asset('storage/'.$setting->hero_image_path) }}" alt="Current hero image" class="w-64 h-32 object-cover rounded">
 									<p class="text-sm text-gray-500 mt-1">Gambar hero saat ini</p>
 								</div>
 							@endif
